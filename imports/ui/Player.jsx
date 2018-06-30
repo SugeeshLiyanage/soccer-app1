@@ -11,7 +11,7 @@ const styles = {
   },
   wrapper: {
     display: 'flex',
-    flexwrap: 'wrap',
+    flexWrap: 'wrap',
   },
   button: {
     margin: 12,
@@ -21,93 +21,92 @@ const styles = {
 export default class Player extends Component {
   render() {
     return (
-  <Card>
-    <CardMedia
-      overlay={<CardTitle title="Sugeesh Liyanage" subtitle="Offence: 12 - Defence: 8" />}
-    >
-      <img src="player.jpg" />
-    </CardMedia>
-    <CardText>
-    <div style={styles.wrapper}>
-    <Chip
-        backgroundColor={blue200}
-        style={styles.chip}
-      >
-        <Avatar size={32} color={blue200} backgroundColor={blue900}>
-          2
-        </Avatar>
-        Ball manipulation
-      </Chip>
-      <Chip
-          backgroundColor={blue200}
-          style={styles.chip}
+      <Card>
+        <CardMedia
+          overlay={<CardTitle title="Emmanuel Henri" subtitle="Offense: 12 - Defense: 8" />}
         >
-          <Avatar size={32} color={blue200} backgroundColor={blue900}>
-            2
-          </Avatar>
-          Kicking abilities
-        </Chip>
-        <Chip
+          <img src="player.jpg" />
+        </CardMedia>
+        <CardText>
+          <div style={styles.wrapper}>
+            <Chip
             backgroundColor={blue200}
             style={styles.chip}
-          >
+            >
+              <Avatar size={32} color={blue200} backgroundColor={blue900}>
+                2
+              </Avatar>
+              Ball manipulation
+            </Chip>
+            <Chip
+            backgroundColor={blue200}
+            style={styles.chip}
+            >
+            <Avatar size={32} color={blue200} backgroundColor={blue900}>
+              2
+            </Avatar>
+            Kicking abilities
+          </Chip>
+          <Chip
+            backgroundColor={blue200}
+            style={styles.chip}
+            >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
               2
             </Avatar>
             Passing abilities
           </Chip>
           <Chip
-              backgroundColor={blue200}
-              style={styles.chip}
+            backgroundColor={blue200}
+            style={styles.chip}
             >
-              <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
-              </Avatar>
-              Duel/Tackling abilities
-            </Chip>
-            <Chip
-                backgroundColor={blue200}
-                style={styles.chip}
-              >
-                <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                  2
-                </Avatar>
-                Field speed coverage
-              </Chip>
-              <Chip
-                  backgroundColor={blue200}
-                  style={styles.chip}
-                >
-                  <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                    2
-                  </Avatar>
-                  Blocking abilities
-                </Chip>
-                <Chip
-                    backgroundColor={blue200}
-                    style={styles.chip}
-                  >
-                    <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                      2
-                    </Avatar>
-                    Game strategy
-                  </Chip>
-                  <Chip
-                      backgroundColor={blue200}
-                      style={styles.chip}
-                    >
-                      <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                        2
-                      </Avatar>
-                      Playmaking risk
-                    </Chip>
-                  </div>
+            <Avatar size={32} color={blue200} backgroundColor={blue900}>
+              2
+            </Avatar>
+            Duel/Tackling abilities
+          </Chip>
+          <Chip
+            backgroundColor={blue200}
+            style={styles.chip}
+            >
+            <Avatar size={32} color={blue200} backgroundColor={blue900}>
+              2
+            </Avatar>
+            Field speed coverage
+          </Chip>
+          <Chip
+            backgroundColor={blue200}
+            style={styles.chip}
+            >
+            <Avatar size={32} color={blue200} backgroundColor={blue900}>
+              2
+            </Avatar>
+            Blocking abilities
+          </Chip>
+          <Chip
+            backgroundColor={blue200}
+            style={styles.chip}
+            >
+            <Avatar size={32} color={blue200} backgroundColor={blue900}>
+              2
+            </Avatar>
+            Game strategy
+          </Chip>
+          <Chip
+            backgroundColor={blue200}
+            style={styles.chip}
+            >
+            <Avatar size={32} color={blue200} backgroundColor={blue900}>
+              2
+            </Avatar>
+            Playmaking risks
+          </Chip>
+          </div>
+        </CardText>
+        <CardActions>
 
-    </CardText>
-    <CardActions>
-
-    </CardActions>
-  </Card>
+        </CardActions>
+      </Card>
     )
   }
 }
