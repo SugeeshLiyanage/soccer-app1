@@ -19,11 +19,20 @@ const styles = {
 };
 
 export default class Player extends Component {
+  showEditForm() {
+    this.props.showEditForm();
+  }
+
   render() {
+    const player = this.props.player;
+    const defense = player.duelTackling + player.fieldCoverage + player.blockingAbilities + player.gameStrategy + player.playmakingRisks;
+    const offense = player.kickingAbilities + player.gameStrategy + player.ballManipulation + player.passingAbilities + player.fieldCoverage + player.playmakingRisks;
+    const total = player.kickingAbilities + player.gameStrategy + player.ballManipulation + player.passingAbilities + player.fieldCoverage + player.playmakingRisks + player.duelTackling + player.blockingAbilities;
+
     return (
       <Card>
         <CardMedia
-          overlay={<CardTitle title="Emmanuel Henri" subtitle="Offense: 12 - Defense: 8" />}
+          overlay={<CardTitle title={player.name} subtitle={`Offense: ${offense} - Defense: ${defense} - Total: ${total}`} />}
         >
           <img src="player.jpg" />
         </CardMedia>
@@ -34,7 +43,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
               <Avatar size={32} color={blue200} backgroundColor={blue900}>
-                2
+                {player.ballManipulation}
               </Avatar>
               Ball manipulation
             </Chip>
@@ -43,7 +52,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.kickingAbilities}
             </Avatar>
             Kicking abilities
           </Chip>
@@ -52,7 +61,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.passingAbilities}
             </Avatar>
             Passing abilities
           </Chip>
@@ -61,7 +70,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.duelTackling}
             </Avatar>
             Duel/Tackling abilities
           </Chip>
@@ -70,7 +79,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.fieldCoverage}
             </Avatar>
             Field speed coverage
           </Chip>
@@ -79,7 +88,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.blockingAbilities}
             </Avatar>
             Blocking abilities
           </Chip>
@@ -88,7 +97,7 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.gameStrategy}
             </Avatar>
             Game strategy
           </Chip>
@@ -97,14 +106,18 @@ export default class Player extends Component {
             style={styles.chip}
             >
             <Avatar size={32} color={blue200} backgroundColor={blue900}>
-              2
+              {player.playmakingRisks}
             </Avatar>
             Playmaking risks
           </Chip>
           </div>
         </CardText>
         <CardActions>
-
+          <RaisedButton
+            label="Edit player/stats"
+            labelPosition="before"
+            style={styles.button}
+            onClick={this.showEditForm.bind(this)}/>
         </CardActions>
       </Card>
     )

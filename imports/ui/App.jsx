@@ -16,19 +16,67 @@ import TeamStats from './Team-stats';
 import Player from './Player';
 import AccountsWrapper from './AccountsWrapper';
 
+const tempPlayer = {
+  name: "Temp Players",
+  team: "Lynda",
+  ballManipulation: 2,
+  kickingAbilities: 3,
+  passingAbilities: 2,
+  duelTackling: 1,
+  fieldCoverage: 2,
+  blockingAbilities: 0,
+  gameStrategy: 1,
+  playmakingRisks: 2,
+  notes: "This player is only temporary",
+}
+
 export class App extends Component {
   constructor(props) {
     super(props);
 
     // setting up the state
-    this.state = { players: [] };
+    this.state = {
+      currentPlayer: tempPlayer,
+      showEditPlayer: false,
+      };
+    this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
+    this.showEditForm = this.showEditForm.bind(this);
+    this.showTeamStats = this.showTeamStats.bind(this);
   }
 
   renderPlayers() {
     return this.props.players.map((player) => (
-      <TeamList key={player._id} player={player} />
+      <TeamList key={player._id} player={player} updateCurrentPlayer={this.updateCurrentPlayer}/>
     ));
   }
+
+  updateCurrentPlayer(player) {
+    this.setState({
+      currentPlayer: player,
+    });
+  }
+
+  showEditForm() {
+    this.setState({
+      showEditPlayer: true,
+    });
+  }
+
+  showTeamStats() {
+    this.setState({
+      showEditPlayer: false,
+    });
+  }
+
+  showForm(){
+    if(this.state.showEditPlayer === true) {
+      return ( <Edit currentPlayer={this.state.currentPlayer}
+      showTeamStats={this.showTeamStats}/>);
+    } else {
+      return ( <TeamStats />);
+    }
+  }
+
 
   render() {
     return (
@@ -41,7 +89,7 @@ export class App extends Component {
               <AccountsWrapper />
             </AppBar>
           <div className="row">
-            <div className="col s12 m7" ><Player /></div>
+            <div className="col s12 m7" ><Player player={this.state.currentPlayer} showEditForm={this.showEditForm}/></div>
             <div className="col s12 m5" >
               <h2>Team list</h2><Link to="/new" className="waves-effect waves-light btn">Add player</Link>
               <Divider/>
@@ -50,7 +98,7 @@ export class App extends Component {
                 </List>
               <Divider/>
             </div>
-            <div className="col s12 m5" ><TeamStats/></div>
+            <div className="col s12 m5" >{this.showForm()}</div>
           </div>
         </div>
       </MuiThemeProvider>
