@@ -15,6 +15,7 @@ import TeamList from './Team-list';
 import TeamStats from './Team-stats';
 import Player from './Player';
 import AccountsWrapper from './AccountsWrapper';
+import Edit from './EditPlayer';
 
 const tempPlayer = {
   name: "Temp Players",
