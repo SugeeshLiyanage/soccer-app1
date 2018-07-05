@@ -7,6 +7,18 @@ export default class TeamStats extends Component {
     const players = this.props.players;
     const numPlayers = players.length;
 
+    const ballManipulation = Math.round((players.reduce((ballManipulation, player) => {
+      return ballManipulation + player.ballManipulation;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const kickingAbilities = Math.round((players.reduce((kickingAbilities, player) => {
+      return kickingAbilities + player.kickingAbilities;
+    }, 0) / (3 * numPlayers )) * 100 );
+
+    const passingAbilities = Math.round((players.reduce((passingAbilities, player) => {
+      return passingAbilities + player.passingAbilities;
+    }, 0) / (3 * numPlayers )) * 100 );
+
     const data = {
       labels: ['Ball Manipulation', 'Kicking', 'Passing', 'Duel/Tackling', 'Field Coverage', 'Blocking', 'Strategy', 'Risks'],
       datasets: [
@@ -18,7 +30,7 @@ export default class TeamStats extends Component {
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: 'rgba((12, 71, 161, 1)',
-          data: [65, 59, 90, 81, 56, 55, 40]
+          data: [ballManipulation, kickingAbilities, passingAbilities, 81, 56, 55, 40, 90]
         }
       ]
     };
