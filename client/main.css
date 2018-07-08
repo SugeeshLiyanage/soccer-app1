@@ -29,3 +29,18 @@
   -webkit-tap-highlight-color: transparent;
   will-change: opacity, transform;
 }
+
+.footer {
+        text-align: center; 
+        background: grey;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-top: 8px solid #0277BD;
+        margin: auto;               
+        }
+
+.icons {
+        padding-top: 0px;
+        padding-bottom: 0px;        
+        float: right;
+        }
