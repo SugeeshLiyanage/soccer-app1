@@ -22,7 +22,7 @@ class New extends Component {
       owner: Meteor.userId(),
     }
 
-    Meteor.call('insertPlayer', player, (error) => {
+    Meteor.call('insertPlayer', player, (error) =>{
       if(error) {
         alert("Oups something went wrong: " + error.reason);
       } else {
@@ -30,7 +30,6 @@ class New extends Component {
         this.props.history.push('/');
       }
     });
-
   }
 
   render() {
@@ -137,7 +136,7 @@ class New extends Component {
               <textarea placeholder="Notes" ref="notes" className="materialize-textarea"/>
             </div>
             <div className="input-field col s6">
-              <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+              <button className="btn waves-effect waves-light light-blue darken-3" type="submit" name="action">Submit
                 <i className="material-icons right">send</i>
               </button>
             </div>
