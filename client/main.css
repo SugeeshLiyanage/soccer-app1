@@ -31,16 +31,16 @@
 }
 
 .footer {
-        text-align: center; 
+        text-align: center;
         background: grey;
         padding-top: 30px;
         padding-bottom: 30px;
         border-top: 8px solid #0277BD;
-        margin: auto;               
+        margin: auto;
         }
 
 .icons {
         padding-top: 0px;
-        padding-bottom: 0px;        
+        padding-bottom: 0px;
         float: right;
         }
